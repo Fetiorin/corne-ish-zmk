@@ -38,8 +38,8 @@
             label = "LEFT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
@@ -54,12 +54,21 @@
             label = "RIGHT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <200>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <150>;
             global-quick-tap-ms = <150>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
+        };
+
+        skq: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_KEY_QUICK_RELEASE";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <500>;
+            quick-release;
         };
     };
     combos {
@@ -90,7 +99,7 @@
   &kp Q  &kp W     &kp E  &kp R      &kp T             &kp Y  &kp U      &kp I    &kp O     &kp P
   &hml LSHFT A  &hml LALT S &hml LGUI D  &hml LCTRL F  &kp G             &kp H  &hmr LCTRL J &hmr LGUI K &hmr LALT L  &hmr LSHIFT SEMI
   &kp Z  &kp X     &kp C  &kp V      &kp B             &kp N  &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                &kp LGUI  &mo 1  &kp SPACE    &sk LEFT_SHIFT  &mo 2   &kp RALT
+                &kp LGUI  &mo 1  &kp SPACE    &skq LEFT_SHIFT  &mo 2   &kp RALT
             >;
         };
 
